@@ -1,3 +1,5 @@
+!/bin/bash
+
 ADDRESS_BOOK="addressbook.txt"
 
 
@@ -29,9 +31,7 @@ search_contact() {
 remove_contact() {
     read -p "Enter name, phone number, or email of the contact to remove: " identifier
 
-    # Remove contact if found
     if grep -iq "$identifier" "$ADDRESS_BOOK"; then
-        # Use sed to delete the line that matches the identifier
         sed -i '' "/$identifier/d" "$ADDRESS_BOOK"
         echo "Contact removed."
     else
